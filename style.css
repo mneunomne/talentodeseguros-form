@@ -29,6 +29,14 @@ input:checked + label {
   opacity: 1;
 }
 
+.image-option label {
+  opacity: 0.6;
+}
+
+.image-option {
+  max-width: 50%;
+}
+
 
 #successModal .page-body{
   max-width:300px;

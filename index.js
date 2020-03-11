@@ -41,45 +41,69 @@ $(document).ready(function () {
     return true;   
   }
 
+  function validarCep (cep) {
+    var validacep = /^[0-9]{8}$/
+    return validacep.test(cep)
+  }
+
   function validateEmail(email) {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
   }
 
   $('#cpf').focusout(function () {
-    console.log('cpf', $(this).val())
+    let cpf = $(this).val()
+    if (validarCPF(cpf)) {
+      $.ajax({
+        url: 'https://talentodeseguros-server.herokuapp.com/cpf/' + cpf,
+        dataType: 'json',
+        success: function(data){
+          console.log('data', data)
+          $('#nome_completo').val(data.NOME_COMPLETO)
+          $('#nome_corretora').val(data.CORRETORA)
+          $('#email').val(data['E-MAIL'])
+          $('#telefone').val(data.TELEFONE)
+          $('#regional').val(data.SUCURSAL)
+        }
+      })
+    } else { 
+      console.log('teste')
+    }
   })
   
   $("#cep").focusout(function(){
 		//Início do Comando AJAX
 		$.ajax({
-			//O campo URL diz o caminho de onde virá os dados
-			//É importante concatenar o valor digitado no CEP
 			url: 'https://viacep.com.br/ws/'+$(this).val()+'/json/unicode/',
-			//Aqui você deve preencher o tipo de dados que será lido,
-			//no caso, estamos lendo JSON.
 			dataType: 'json',
-			//SUCESS é referente a função que será executada caso
-			//ele consiga ler a fonte de dados com sucesso.
-			//O parâmetro dentro da função se refere ao nome da variável
-			//que você vai dar para ler esse objeto.
 			success: function(resposta){
-				//Agora basta definir os valores que você deseja preencher
-				//automaticamente nos campos acima.
 				$("#logradouro").val(resposta.logradouro);
 				$("#complemento").val(resposta.complemento);
 				$("#bairro").val(resposta.bairro);
 				$("#cidade").val(resposta.localidade);
 				$("#uf").val(resposta.uf);
-				//Vamos incluir para que o Número seja focado automaticamente
-				//melhorando a experiência do usuário
 				$("#numero").focus();
 			}
 		})
   })
 
-  function checkAllFields () {
-    
+  function checkAllFields (obj) {
+    return {
+      'cpf': (obj.cpf !== '' && validarCPF(obj.cpf)),
+      'email': (obj.email !== '' && validateEmail(obj.email)),
+      'nome_completo': (obj.nome_completo !== '' && obj.nome_completo !== null),
+      'nome_corretora': (obj.nome_corretora !== '' && obj.nome_corretora !== null),
+      'regional': (obj.regional !== '' && obj.regional !== null),
+      'telefone': (obj.telefone !== ''),
+      'cep': (obj.cep !== '' && validarCep(obj.cep)),
+      'logradouro': (obj.logradouro !== ''),
+      'numero': (obj.numero !== ''),
+      'complemento': (obj.complemento !== ''),
+      'bairro': (obj.bairro !== ''),
+      'uf': (obj.uf !== ''),
+      'voltagem': (obj.voltagem !== ''),
+      'brinde': (obj.brinde !== '')
+    }
   }
   
   $('#submit').click(function () {
@@ -95,7 +119,26 @@ $(document).ready(function () {
     let complemento = $('#complemento').val()
     let bairro = $('#bairro').val()
     let uf = $('#uf').val()
-    let voltagem = $("div[name=voltagem]").val()
-    let brinde = $("div[name=brinde]").val()
+    let voltagem = $("input[name=voltagem]").val()
+    let brinde = $("input[name=brinde]").val()
+    
+    
+    let obj = {cpf, nome_completo, nome_corretora, regional, email, telefone, cep, logradouro, numero, complemento, bairro, uf, voltagem, brinde}
+    console.log('obj', obj, validarCPF(obj.cpf))
+    let validFields = checkAllFields(obj)
+    console.log('isvalid', validFields)
+
+    for (i in validFields) {
+      console.log('validFields', i)
+      let el = $('#' + i)
+      el.removeClass('is-valid')
+      el.removeClass('is-invalid')
+      if(validFields[i]) {
+        el.addClass('is-valid')
+      } else {
+        el.addClass('is-invalid')
+      }
+    }
+
   })
 })
