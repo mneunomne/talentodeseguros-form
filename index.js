@@ -95,7 +95,7 @@ $(document).ready(function () {
       'nome_corretora': (obj.nome_corretora !== '' && obj.nome_corretora !== null),
       'regional': (obj.regional !== '' && obj.regional !== null),
       'telefone': (obj.telefone !== ''),
-      'cep': (obj.cep !== '' && validarCep(obj.cep)),
+      'cep': (obj.cep !== ''),
       'logradouro': (obj.logradouro !== ''),
       'numero': (obj.numero !== ''),
       'complemento': (obj.complemento !== ''),
@@ -128,17 +128,31 @@ $(document).ready(function () {
     let validFields = checkAllFields(obj)
     console.log('isvalid', validFields)
 
+    let allValid = true
     for (i in validFields) {
       console.log('validFields', i)
       let el = $('#' + i)
       el.removeClass('is-valid')
       el.removeClass('is-invalid')
       if(validFields[i]) {
+        allValid = true && allValid
         el.addClass('is-valid')
       } else {
+        allValid = false && allValid
         el.addClass('is-invalid')
       }
     }
-
+    console.log('valid', allValid)
+    
+    if (allValid) {
+      $.ajax({
+        url: "https://talentodeseguros-server.herokuapp.com/participante/" + JSON.stringify(obj),
+        type: "POST",
+        success: function(resposta){
+          $('#successModal').modal('show')
+        },
+        dataType: 'json'
+      })
+    }
   })
 })
