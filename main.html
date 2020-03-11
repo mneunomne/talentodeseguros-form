@@ -18,7 +18,7 @@
 
   <div class="container mt-5 mb-5">
     <div id="cover">
-      <img src="KeyVisual.Talento2020_Samba_Light.jpg"/>
+      <img src="KeyVisual.Talento2020_Samba_Light.jpg" />
       <button type="submit" id="next" class="btn btn-primary mt-5">Próximo</button>
     </div>
     <div id="form" style="display: none;">
@@ -28,7 +28,8 @@
           <div class="col-12">
             <div class="form-group">
               <label for="cpf">CPF</label>
-              <input type="text" class="form-control" placeholder="000.000.000-00" id="cpf" required data-mask="000.000.000-00">
+              <input type="text" class="form-control" placeholder="000.000.000-00" id="cpf" required
+                data-mask="000.000.000-00">
             </div>
             <div class="form-group">
               <label for="nome_completo">Nome Completo</label>
@@ -44,15 +45,16 @@
             </div>
             <div class="form-group">
               <label for="nome_corretora">E-mail</label>
-              <input type="email" class="form-control" placeholder="" id="nome_corretora" required>
+              <input type="email" class="form-control" placeholder="" id="email" required>
             </div>
             <div class="form-group">
               <label for="nome_corretora">Telefone</label>
-              <input type="text" class="form-control" placeholder="" id="nome_corretora" required data-mask="(00) 00000-0000">
+              <input type="text" class="form-control" placeholder="" id="telefone" required
+                placeholder="(00) 00000-0000" data-mask="(00) 00000-0000">
             </div>
             <div class="form-group">
               <label for="cep">CEP</label>
-              <input id="cep" class="form-control" type="text" required data-mask="00000-000"/>
+              <input id="cep" class="form-control" type="text" required placeholder="00000-000" data-mask="00000-000" />
             </div>
             <div class="form-group">
               <label for="logradouro">Logradouro</label>
@@ -122,7 +124,8 @@
               <div class="col-md-3">
                 <div class="image-label">Fritadeira Elétrica (Philco)</div>
                 <div class="custom-control custom-radio image-checkbox">
-                  <input type="radio" class="custom-control-input" id="fritadeira" name="brinde" value="Fritadeira Elétrica (Philco)" required>
+                  <input type="radio" class="custom-control-input" id="fritadeira" name="brinde"
+                    value="Fritadeira Elétrica (Philco)" required>
                   <label class="custom-control-label" for="fritadeira">
                     <img src="img/fritadeira.png" alt="#" class="img-fluid">
                   </label>
@@ -140,7 +143,8 @@
               <div class="col-md-3">
                 <div class="image-label">Fone de Ouvido (Philips)</div>
                 <div class="custom-control custom-radio image-checkbox">
-                  <input type="radio" class="custom-control-input" id="fone" name="brinde" value="Fone de Ouvido (Philips)" required>
+                  <input type="radio" class="custom-control-input" id="fone" name="brinde"
+                    value="Fone de Ouvido (Philips)" required>
                   <label class="custom-control-label" for="fone">
                     <img src="img/fone.png" alt="#" class="img-fluid">
                   </label>
@@ -149,7 +153,8 @@
               <div class="col-md-3">
                 <div class="image-label">Home Theater (Philco)</div>
                 <div class="custom-control custom-radio image-checkbox">
-                  <input type="radio" class="custom-control-input" id="home_theater" name="brinde" value="Home Theater (Philco)" required>
+                  <input type="radio" class="custom-control-input" id="home_theater" name="brinde"
+                    value="Home Theater (Philco)" required>
                   <label class="custom-control-label" for="home_theater">
                     <img src="img/home_theater.png" alt="#" class="img-fluid">
                   </label>
@@ -158,7 +163,8 @@
               <div class="col-md-3">
                 <div class="image-label">Robo Aspirador de Pó (Mondial)</div>
                 <div class="custom-control custom-radio image-checkbox">
-                  <input type="radio" class="custom-control-input" id="robo" name="brinde" value="Robo Aspirador de Pó (Mondial)" required>
+                  <input type="radio" class="custom-control-input" id="robo" name="brinde"
+                    value="Robo Aspirador de Pó (Mondial)" required>
                   <label class="custom-control-label" for="robo">
                     <img src="img/robo.png" alt="#" class="img-fluid">
                   </label>
@@ -167,8 +173,29 @@
             </div>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary mt-4">Submit</button>
+        <button id="submit" type="submit" class="btn btn-primary mt-4" data-toggle="modal"
+          data-target="#successModal">Submit</button>
       </form>
+    </div>
+  </div>
+
+  <div id="successModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <a class="close" href="#" data-dismiss="modal">&times;</a>
+        <div class="page-body">
+          <div class="head">
+            <h3 style="margin-top:5px;">Dados enviados com sucesso!</h3>
+          </div>
+          <h1 style="text-align:center;">
+            <div class="checkmark-circle">
+              <div class="background"></div>
+              <div class="checkmark draw"></div>
+            </div>
+            <h1>
+        </div>
+      </div>
     </div>
   </div>
 
