@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>TALENTO DE SEGUROS</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="bootstrap-image-checkbox.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- -->
+
+  <div class="container mt-5 mb-5">
+    <div id="cover">
+      <img src="KeyVisual.Talento2020_Samba_Light.jpg"/>
+      <button type="submit" id="next" class="btn btn-primary mt-5">Próximo</button>
+    </div>
+    <div id="form" style="display: none;">
+      <h1 class="mb-4">TALENTO DE SEGUROS</h1>
+      <form>
+        <div class="row">
+          <div class="col-12">
+            <div class="form-group">
+              <label for="cpf">CPF</label>
+              <input type="text" class="form-control" placeholder="000.000.000-00" id="cpf" required data-mask="000.000.000-00">
+            </div>
+            <div class="form-group">
+              <label for="nome_completo">Nome Completo</label>
+              <input type="text" class="form-control" placeholder="" id="nome_completo" required>
+            </div>
+            <div class="form-group">
+              <label for="nome_corretora">Nome da Corretora</label>
+              <input type="text" class="form-control" placeholder="" id="nome_corretora" required>
+            </div>
+            <div class="form-group">
+              <label for="regional">Regional</label>
+              <input type="text" class="form-control" placeholder="" id="regional" required>
+            </div>
+            <div class="form-group">
+              <label for="nome_corretora">E-mail</label>
+              <input type="email" class="form-control" placeholder="" id="nome_corretora" required>
+            </div>
+            <div class="form-group">
+              <label for="nome_corretora">Telefone</label>
+              <input type="text" class="form-control" placeholder="" id="nome_corretora" required data-mask="(00) 00000-0000">
+            </div>
+            <div class="form-group">
+              <label for="cep">CEP</label>
+              <input id="cep" class="form-control" type="text" required data-mask="00000-000"/>
+            </div>
+            <div class="form-group">
+              <label for="logradouro">Logradouro</label>
+              <input id="logradouro" class="form-control" type="text" required />
+            </div>
+            <div class="form-group">
+              <label for="numero">Número</label>
+              <input id="numero" class="form-control" type="text" />
+            </div>
+            <div class="form-group">
+              <label for="complemento">Complemento</label>
+              <input id="complemento" class="form-control" type="text" />
+            </div>
+            <div class="form-group">
+              <label for="bairro">Bairro</label>
+              <input id="bairro" class="form-control" type="text" required />
+            </div>
+            <div class="form-group">
+              <label for="uf">Estado</label>
+              <select id="uf" class="form-control">
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Qual a voltagem da sua região</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="voltagem" id="110v" value="option1" checked>
+                <label class="form-check-label" for="110v">
+                  110V
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="voltagem" id="220v" value="option1" checked>
+                <label class="form-check-label" for="220v">
+                  220V
+                </label>
+              </div>
+            </div>
+            <h3 class="mt-5 mb-4">SELECIONE SEU BRINDE:</h3>
+            <div class="row">
+              <div class="col-md-3">
+                <div class="image-label">Fritadeira Elétrica (Philco)</div>
+                <div class="custom-control custom-radio image-checkbox">
+                  <input type="radio" class="custom-control-input" id="fritadeira" name="brinde" value="Fritadeira Elétrica (Philco)" required>
+                  <label class="custom-control-label" for="fritadeira">
+                    <img src="img/fritadeira.png" alt="#" class="img-fluid">
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="image-label">Alexa Show</div>
+                <div class="custom-control custom-radio image-checkbox">
+                  <input type="radio" class="custom-control-input" id="alexa" name="brinde" value="Alexa Show" required>
+                  <label class="custom-control-label" for="alexa">
+                    <img src="img/alexa.png" alt="#" class="img-fluid">
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="image-label">Fone de Ouvido (Philips)</div>
+                <div class="custom-control custom-radio image-checkbox">
+                  <input type="radio" class="custom-control-input" id="fone" name="brinde" value="Fone de Ouvido (Philips)" required>
+                  <label class="custom-control-label" for="fone">
+                    <img src="img/fone.png" alt="#" class="img-fluid">
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="image-label">Home Theater (Philco)</div>
+                <div class="custom-control custom-radio image-checkbox">
+                  <input type="radio" class="custom-control-input" id="home_theater" name="brinde" value="Home Theater (Philco)" required>
+                  <label class="custom-control-label" for="home_theater">
+                    <img src="img/home_theater.png" alt="#" class="img-fluid">
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="image-label">Robo Aspirador de Pó (Mondial)</div>
+                <div class="custom-control custom-radio image-checkbox">
+                  <input type="radio" class="custom-control-input" id="robo" name="brinde" value="Robo Aspirador de Pó (Mondial)" required>
+                  <label class="custom-control-label" for="robo">
+                    <img src="img/robo.png" alt="#" class="img-fluid">
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-4">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>
